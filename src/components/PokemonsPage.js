@@ -1,4 +1,6 @@
 import React from 'react'
+import PokemonsCollection from './PokemonsCollection'
+import PokemonCard from './PokemonCard'
 
 class PokemonsPage extends React.Component {
 
@@ -17,7 +19,7 @@ componentDidMount () {
       pokemons.results.forEach((pokemon) => {
       fetch(pokemon.url)
       .then (resp => resp.json())
-      .then (pokemon => console.log(pokemon))
+      .then (pokemon => this.setState({pokemons: pokemon}))
     })
   )}
 
@@ -25,7 +27,7 @@ componentDidMount () {
 render () {
   return (
     <div>
-      hi
+      <PokemonsCollection pokemons = {this.state.pokemons}/>
     </div>
   )
 }
