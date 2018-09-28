@@ -19,7 +19,7 @@ componentDidMount () {
       pokemons.results.forEach((pokemon) => {
       fetch(pokemon.url)
       .then (resp => resp.json())
-      .then (pokemon => this.setState({pokemons: pokemon}))
+      .then (pokemon => this.setState({pokemons: [...this.state.pokemons, pokemon]}))
     })
   )}
 
