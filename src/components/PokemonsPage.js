@@ -1,6 +1,6 @@
 import React from 'react'
 import PokemonsCollection from './PokemonsCollection'
-import PokemonCard from './PokemonCard'
+import NavBar from './NavBar'
 
 class PokemonsPage extends React.Component {
 
@@ -12,23 +12,25 @@ class PokemonsPage extends React.Component {
   
 
 
-componentDidMount () {
-  fetch("https://pokeapi.co/api/v2/pokemon/")
-    .then (resp => resp.json())
-    .then (pokemons => 
-      pokemons.results.forEach((pokemon) => {
-      fetch(pokemon.url)
-      .then (resp => resp.json())
-      .then (pokemon => this.setState({pokemons: pokemon}))
-    })
-  )}
+// componentDidMount () {
+//   fetch("https://pokeapi.co/api/v2/pokemon/")
+//     .then (resp => resp.json())
+//     .then (pokemons => 
+//       pokemons.results.forEach((pokemon) => {
+//       fetch(pokemon.url)
+//       .then (resp => resp.json())
+//       .then (pokemon => this.setState({pokemons: pokemon}))
+//     })
+//   )}
 
 
 render () {
   return (
     <div>
-      <PokemonsCollection pokemons = {this.state.pokemons}/>
+      <NavBar />
+      <PokemonsCollection/>
     </div>
+
   )
 }
 
