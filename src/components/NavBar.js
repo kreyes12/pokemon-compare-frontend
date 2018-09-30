@@ -3,7 +3,7 @@ import React from 'react'
 const NavBar = () => {
 
     return(
-        <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <nav className="navbar is-transparent test" aria-label="main navigation">
             <div className="navbar-brand">
                 <a href="#" className="navbar-item">
                 Pokemon Compare

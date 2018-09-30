@@ -9518,3 +9518,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
       padding: 9rem 1.5rem; }
     .section.is-large {
       padding: 18rem 1.5rem; } }
+
+.test {
+  margin-bottom: 1rem;
+}
