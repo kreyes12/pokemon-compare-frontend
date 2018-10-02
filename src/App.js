@@ -49,7 +49,7 @@ class App extends Component {
         { currentUser
           ? <Route exact path='/pokemon' component={() => <PokemonsPage />} />
           : <Route exact path='/login' component={props => <Login login={login} {...props} />} />}
-        <Route exact path='/register' component={props => <Register {...props} />} />
+        <Route exact path='/register' component={props => <Register login={login} {...props} />} />
       </div>
     )
   }
