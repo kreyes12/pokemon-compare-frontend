@@ -17,8 +17,7 @@ class App extends Component {
 
   login = username => {
     this.setState({ currentUser: username })
-    console.log(this.props)
-    // this.props.history.push('/users')
+    this.props.history.push('/users')
   }
 
   logout = () => {
@@ -46,7 +45,7 @@ class App extends Component {
       <div>
         <NavBar currentUser={currentUser} login={login} logout={logout} />
         { currentUser
-          ? <PokemonsPage />
+          ? <Route exact path='/yourpokemon' component={props => <PokemonsPage />} />
           : <Route exact path='/login' component={props => <Login login={login} {...props} />} />}
         <Route exact path='/register' component={props => <Register {...props} />} />
       </div>

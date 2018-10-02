@@ -7,7 +7,8 @@ class Login extends React.Component {
     password: ''
   }
 
-handleSubmit = () => {
+handleSubmit = (event) => {
+  event.preventDefault()
   const { username, password } = this.state
   const { login } = this.props
 
@@ -32,13 +33,13 @@ render () {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Username: </label> <br />
         <input type='text' name='username' onChange={handleChange} value={username} /> <br />
         <label>Password: </label> <br />
         <input type='password' name='password' onChange={handleChange} value={password} /> <br />
+        <button>Login</button>
       </form>
-      <button onClick={handleSubmit}>Login</button>
     </div>
   )
 }
