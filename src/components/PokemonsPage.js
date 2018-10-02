@@ -18,7 +18,6 @@ class PokemonsPage extends React.Component {
     return (
       <div>
         <PokemonsCollection pokemons={this.state.pokemons} />
-        <PokemonCard />
       </div>
 
     )
