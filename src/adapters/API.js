@@ -1,11 +1,13 @@
 class API {
-  static signin (username, password) {
-    return fetch(API.signinURL, {
+  static login (username, password) {
+    return fetch(API.loginURL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        username,
-        password
+        user: {
+          username,
+          password
+        }
       })
     }).then(resp => resp.json())
   }
@@ -14,14 +16,41 @@ class API {
     return fetch(API.validateURL, {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: token
+        'Authorization': `Bearer ${token}`
       }
     }).then(resp => resp.json())
   }
+
+  static getPokemon () {
+    const token = localStorage.getItem('token')
+    return fetch(API.pokemonsURL, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+  }
+
+  static register (username, password) {
+    return fetch(API.registerURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        user: {
+          username,
+          password
+        }
+      })
+    }).then(resp => resp.json())
+  }
+
 }
 
-API.baseURL = 'http://localhost:3001/api/v1'
-API.signinURL = API.baseURL + '/signin'
+API.baseURL = 'http://localhost:3000/api/v1'
+API.registerURL = API.baseURL + '/register'
+API.loginURL = API.baseURL + '/login'
 API.validateURL = API.baseURL + '/validate'
+API.pokemonsURL = API.baseURL + '/pokemons'
 
 export default API

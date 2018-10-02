@@ -1,35 +1,54 @@
 import React, { Component } from 'react'
-
-
-
 import './App.css'
+
+import { Route, withRouter } from 'react-router-dom'
+
+import API from './adapters/API'
+
+import NavBar from './components/NavBar'
+import Login from './components/Login'
+import Register from './components/Register'
 import PokemonsPage from './components/PokemonsPage.js'
 
 class App extends Component {
-  
   state = {
     currentUser: undefined
   }
 
-  signin = username => {
-    this.setState({currentUser: username})
-    this.props.history.push('/users')
+  login = username => {
+    this.setState({ currentUser: username })
+    console.log(this.props)
+    // this.props.history.push('/users')
   }
 
-  signout = () => {
-    this.setState({currentUser: undefined})
+  logout = () => {
+    this.setState({ currentUser: undefined })
     localStorage.removeItem('token')
   }
 
-  
+  componentDidMount () {
+    const token = localStorage.getItem('token')
+    if (token) {
+      API.validate(token)
+        .then(data => {
+          if (data.username) {
+            this.login(data.username)
+          }
+        })
+    }
+  }
+
   render () {
-    const { signin, signout } = this
+    const { login, logout } = this
     const { currentUser } = this.state
+
     return (
       <div>
-        
-        <PokemonsPage />
-
+        <NavBar currentUser={currentUser} login={login} logout={logout} />
+        { currentUser
+          ? <PokemonsPage />
+          : <Route exact path='/login' component={props => <Login login={login} {...props} />} />}
+        <Route exact path='/register' component={props => <Register {...props} />} />
       </div>
     )
   }
