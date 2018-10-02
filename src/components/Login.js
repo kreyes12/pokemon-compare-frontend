@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../adapters/API'
+import NavBar from './NavBar'
 
 class Login extends React.Component {
   state = {
@@ -18,7 +19,7 @@ handleSubmit = (event) => {
         console.log(data)
       } else {
         localStorage.setItem('token', data.token)
-        login(data.username)
+        login(data.user.username)
       }
     })
 }

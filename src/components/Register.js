@@ -15,7 +15,7 @@ class Register extends React.Component {
           if (data.error) {
             console.log(data)
           } else {
-            console.log('Success! Now Login')
+            this.props.history.push('/yourpokemon')
           }
         })
     }

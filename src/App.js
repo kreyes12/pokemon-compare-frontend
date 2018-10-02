@@ -17,7 +17,7 @@ class App extends Component {
 
   login = username => {
     this.setState({ currentUser: username })
-    this.props.history.push('/users')
+    this.props.history.push('/pokemon')
   }
 
   logout = () => {
@@ -34,6 +34,8 @@ class App extends Component {
             this.login(data.username)
           }
         })
+    } else {
+      this.props.history.push('/login')
     }
   }
 
@@ -45,7 +47,7 @@ class App extends Component {
       <div>
         <NavBar currentUser={currentUser} login={login} logout={logout} />
         { currentUser
-          ? <Route exact path='/yourpokemon' component={props => <PokemonsPage />} />
+          ? <Route exact path='/pokemon' component={() => <PokemonsPage />} />
           : <Route exact path='/login' component={props => <Login login={login} {...props} />} />}
         <Route exact path='/register' component={props => <Register {...props} />} />
       </div>
@@ -53,4 +55,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)
