@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Header from './components/Header.js'
+
 
 import './App.css'
 import PokemonsPage from './components/PokemonsPage.js'
@@ -27,7 +27,7 @@ class App extends Component {
     const { currentUser } = this.state
     return (
       <div>
-        <Header currentUser={currentUser} signout={signout} />
+        
         <PokemonsPage />
 
       </div>

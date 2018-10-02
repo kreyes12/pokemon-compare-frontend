@@ -19,7 +19,6 @@
     "css-watch": "npm run css-build -- --watch"
   },
   "devDependencies": {
-    
     "node-sass": "^4.9.3"
   }
 }
