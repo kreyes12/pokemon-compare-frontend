@@ -1,6 +1,7 @@
 import React from 'react'
 import PokemonsCollection from './PokemonsCollection'
 import NavBar from './NavBar'
+import NewPokemon from './NewPokemon'
 
 
 class PokemonsPage extends React.Component {
@@ -36,7 +37,7 @@ render () {
     <div>
       <NavBar />
       <PokemonsCollection pokemons={ this.state.pokemons }/>
-     
+      <NewPokemon />
     </div>
 
   )
