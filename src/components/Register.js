@@ -9,13 +9,22 @@ class Register extends React.Component {
 
     handleSubmit = () => {
       const { username, password } = this.state
+      const { login } = this.props
 
       API.register(username, password)
         .then(data => {
           if (data.error) {
             console.log(data)
           } else {
-            console.log('Success! Now Login')
+            API.login(username, password)
+              .then(data => {
+                if (data.error) {
+                  console.log(data)
+                } else {
+                  localStorage.setItem('token', data.token)
+                  login(data.user.username)
+                }
+              })
           }
         })
     }
