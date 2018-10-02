@@ -29,6 +29,9 @@ class PokemonsPage extends React.Component {
   render () {
     return (
       <div>
+        { pokemons.length === 0 ?
+        <p></p>
+        }
         <PokemonsCollection pokemons={this.state.pokemons} deletePokemon={this.deletePokemon} />
       </div>
 
