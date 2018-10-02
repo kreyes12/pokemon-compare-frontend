@@ -1,4 +1,5 @@
 import React from 'react'
+import API from '../adapters/API'
 
 class PokemonsCard extends React.Component {
     state={
@@ -40,7 +41,7 @@ render () {
   return (
     <div className={this.state.active ? 'card-flip column is-4 flip' : 'card-flip column is-4'} onClick={this.toggleClass}>
       <div className='flipper'>
-            <div className='front'>
+        <div className='front'>
           <img className='card-sprite' src={this.averagePokemon()} alt='Pokemon-sprite' />
           <div className='poke-content'>
             <p className='title'>{this.titleCaseName(this.props.pokemon.nickname)}</p>
@@ -48,7 +49,7 @@ render () {
           </div>
         </div>
         <div className='back'>
-                <div className='poke-content'>
+          <div className='poke-content'>
             <p className='title'>{this.titleCaseName(this.props.pokemon.name)}</p>
             <p className='title'>Lv: {this.props.pokemon.level}</p>
             <p><strong>HP: </strong>{this.props.pokemon.hp}</p>
@@ -59,9 +60,10 @@ render () {
             <p><strong>Speed: </strong>{this.props.pokemon.speed}</p>
             <p><strong>Nature: </strong>{this.props.pokemon.nature}</p>
           </div>
-                <button className='button' onClick={this.handleClick}>View Species Stats</button>
-              </div>
-          </div>
+          <button className='button' onClick={this.handleClick}>View Species Stats</button>
+          <button className='button' onClick={() => this.props.deletePokemon(this.props.pokemon.id)}>❌</button>
+        </div>
+      </div>
     </div>
 
   )

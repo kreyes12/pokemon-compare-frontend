@@ -9,6 +9,18 @@ class PokemonsPage extends React.Component {
     pokemons: []
   }
 
+  deletePokemon = (id) => { 
+    API.deletePokemon(id)
+      .then(data => {
+        if (data.errors) {
+          console.log(data)
+        } else {
+          let currPokemon = this.state.pokemons.filter(pokemon => pokemon.id !== id)
+          this.setState({ pokemons: currPokemon })
+        }
+      })
+  }
+
   componentDidMount () {
     API.getPokemon()
       .then(pokemons => this.setState({ pokemons: pokemons }))
@@ -17,7 +29,7 @@ class PokemonsPage extends React.Component {
   render () {
     return (
       <div>
-        <PokemonsCollection pokemons={this.state.pokemons} />
+        <PokemonsCollection pokemons={this.state.pokemons} deletePokemon={this.deletePokemon} />
       </div>
 
     )
