@@ -6,9 +6,20 @@ class PokemonCard extends React.Component {
 
   }
 
+  averagePokemon = (averagepokemonstats) => {
+    const pokemonsprite = JSON.parse(averagepokemonstats)
+    return pokemonsprite.sprites.front_default
+  }
+
   render () {
+    const { active } = this.state
+    const { poketeam, showPoketeam } = this.props
     return (
-      <div>Poketeam stats card</div>
+      <div>
+        <h1>{poketeam.nickname}</h1>
+        <h3>{poketeam.name}</h3>
+        <img src={this.averagePokemon(poketeam.pokemons.averagepokemonstats)} />
+      </div>
     )
   }
 };
