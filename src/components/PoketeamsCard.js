@@ -3,7 +3,7 @@ import { types } from 'util'
 
 class PoketeamsCard extends React.Component {
     state={
-      active: false
+
     }
 
     averagePokemon = (averagepokemonstats) => {
@@ -12,7 +12,6 @@ class PoketeamsCard extends React.Component {
     }
 
     render () {
-      const { active } = this.state
       const { poketeam, showPoketeam } = this.props
       return (
         <div className='container'>
@@ -24,7 +23,6 @@ class PoketeamsCard extends React.Component {
                   <h1>{pokemon.nickname}</h1>
                   <h3>{pokemon.name}</h3>
                   <img src={this.averagePokemon(pokemon.averagepokemonstats)} />
-
                 </div>)
               )
             }
