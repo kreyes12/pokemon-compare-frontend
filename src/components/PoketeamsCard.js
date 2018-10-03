@@ -1,8 +1,6 @@
 import React from 'react'
 import { types } from 'util'
 
-const testArray = ['Leafy', 'Ratty', 'Pididgey']
-
 class PoketeamsCard extends React.Component {
     state={
       active: false
@@ -12,8 +10,6 @@ class PoketeamsCard extends React.Component {
       const pokemonsprite = JSON.parse(averagepokemonstats)
       return pokemonsprite.sprites.front_default
     }
-
-
 
     render () {
       const { active } = this.state
@@ -32,7 +28,7 @@ class PoketeamsCard extends React.Component {
                 </div>)
               )
             }
-            <button onClick={showPoketeam}>View Team</button>
+            <button onClick={() => showPoketeam(poketeam)}>View Team</button>
           </div>
         </div>
       )

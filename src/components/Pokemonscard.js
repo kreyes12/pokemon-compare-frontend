@@ -39,7 +39,7 @@ titleCaseName = (name) => {
 
 render () {
   return (
-    <div className={this.state.active ? 'card-flip column is-4 flip' : 'card-flip column is-4'} onClick={this.toggleClass}>
+    <div className={this.state.active ? 'card-flip column is-4 flip' : 'card-flip column is-4'} onClick={this.toggleClass} key={this.props.pokemon.id}>
       <div className='flipper'>
         <div className='front'>
           <img className='card-sprite' src={this.averagePokemon()} alt='Pokemon-sprite' />
