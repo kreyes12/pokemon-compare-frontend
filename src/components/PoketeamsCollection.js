@@ -17,11 +17,15 @@ class PoketeamsCollection extends React.Component {
 
   render () {
     return (
-      <div className='container'>
-        <div className='columns'>
+      <div className='tile is-ancenstor'>
+        <div className='tile is-parent is-vertical'>
           { this.state.selectedPoketeam
             ? <PoketeamCard poketeam={this.state.selectedPoketeam} viewAllPoketeams={this.viewAllPoketeams} />
-            : this.props.poketeams.map(singlePoketeam => <PoketeamsCard showPoketeam={this.showPoketeam} poketeam={singlePoketeam} deletePoketeam={this.props.deletePoketeam} />) }
+            : this.props.poketeams.map(singlePoketeam =>
+              <div className='tile is-child'>
+                <PoketeamsCard showPoketeam={this.showPoketeam} poketeam={singlePoketeam} deletePoketeam={this.props.deletePoketeam} />
+              </div>
+            )}
         </div>
       </div>
     )
