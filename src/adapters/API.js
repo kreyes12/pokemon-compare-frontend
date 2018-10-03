@@ -1,4 +1,4 @@
-import { get } from 'https';
+import { get } from 'https'
 
 class API {
   // USER API CALLS
@@ -60,13 +60,40 @@ class API {
     })
       .then(resp => resp.json())
   }
+
+  // POKETEAM API CALLS
+  static getPoketeams () {
+    const token = localStorage.getItem('token')
+    return fetch(API.poketeamsURL, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+  }
+
+  static deletePoketeam (poketeamId) {
+    const token = localStorage.getItem('token')
+    return fetch(API.poketeamsURL + `/${poketeamId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(resp => resp.json())
+  }
 }
 
 API.baseURL = 'http://localhost:3000/api/v1'
+
 API.registerURL = API.baseURL + '/register'
 API.loginURL = API.baseURL + '/login'
 API.validateURL = API.baseURL + '/validate'
 
 API.pokemonsURL = API.baseURL + '/pokemons'
+
+API.poketeamsURL = API.baseURL + '/poketeams'
 
 export default API

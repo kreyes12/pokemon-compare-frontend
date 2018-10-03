@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 
+import { Switch } from 'react-router-dom'
 import { Route, withRouter } from 'react-router-dom'
 
 import API from './adapters/API'
@@ -9,6 +10,7 @@ import NavBar from './components/NavBar'
 import Login from './components/Login'
 import Register from './components/Register'
 import PokemonsPage from './components/PokemonsPage.js'
+import PoketeamsPage from './components/PoketeamsPage.js'
 
 class App extends Component {
   state = {
@@ -49,6 +51,7 @@ class App extends Component {
         { currentUser
           ? <Route exact path='/pokemon' component={() => <PokemonsPage />} />
           : <Route exact path='/login' component={props => <Login login={login} {...props} />} />}
+        <Route exact path='/poketeams' component={() => <PoketeamsPage />} />
         <Route exact path='/register' component={props => <Register login={login} {...props} />} />
       </div>
     )
