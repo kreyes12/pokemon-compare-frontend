@@ -9,7 +9,7 @@ class PokemonsPage extends React.Component {
     pokemons: []
   }
 
-  deletePokemon = (id) => { 
+  deletePokemon = (id) => {
     API.deletePokemon(id)
       .then(data => {
         if (data.errors) {
@@ -29,10 +29,10 @@ class PokemonsPage extends React.Component {
   render () {
     return (
       <div>
-        { pokemons.length === 0 ?
-        <p></p>
+        { this.state.pokemons.length === 0
+          ? <p>You haven't added any pokemon yet</p>
+          : <PokemonsCollection pokemons={this.state.pokemons} deletePokemon={this.deletePokemon} />
         }
-        <PokemonsCollection pokemons={this.state.pokemons} deletePokemon={this.deletePokemon} />
       </div>
 
     )
