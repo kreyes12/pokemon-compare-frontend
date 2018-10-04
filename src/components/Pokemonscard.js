@@ -6,22 +6,10 @@ class PokemonsCard extends React.Component {
       active: false
     }
 
-test = (obj) => {
-  for (var prop in obj) {
-    if(obj.hasOwnProperty(prop))
-      return false
-  }
-  return true
-}
 
 averagePokemon = () => {
   const pokemonsprite = JSON.parse(this.props.pokemon.averagepokemonstats)
-  
-  if (this.test(pokemonsprite)) {
-  return "https://www.lewesac.co.uk/wp-content/uploads/2017/12/default-avatar.jpg"
-  } else {
   return pokemonsprite.sprites.front_default
-  }
 }
 
 getAveragePokemon = () => {
