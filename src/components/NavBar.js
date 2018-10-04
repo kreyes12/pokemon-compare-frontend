@@ -12,7 +12,7 @@ class NavBar extends React.Component {
             </a>
         </div>
         <div className="navbar-start"></div>
-        <div class="navbar-end">
+        <div className="navbar-end">
             <div className="navbar-item">
 
             {props.currentUser && `Hello, Trainer ${props.currentUser}.`}

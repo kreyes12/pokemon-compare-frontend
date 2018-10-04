@@ -60,7 +60,23 @@ class API {
     })
       .then(resp => resp.json())
   }
+
+
+  static addPokemon (obj) {
+    return fetch(API.baseURL + `/pokemons/new`, {
+      method: "POST",
+      headers:{
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify(obj)  
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+  }
 }
+
 
 API.baseURL = 'http://localhost:3000/api/v1'
 API.registerURL = API.baseURL + '/register'

@@ -30,12 +30,14 @@ class PokemonsPage extends React.Component {
   render () {
     return (
       <div>
+        <NewPokemon />
         { this.state.pokemons.length === 0
           ? <p>You haven't added any pokemon yet</p>
           : <PokemonsCollection pokemons={this.state.pokemons} deletePokemon={this.deletePokemon} />
         }
+      
       </div>
-
+      
     )
   }
 }

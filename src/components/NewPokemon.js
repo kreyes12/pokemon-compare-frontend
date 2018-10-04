@@ -1,12 +1,79 @@
 import React from 'react'
+import API from '../adapters/API'
+import PokemonNames from '../PokemonNames'
 
-const NewPokemon = () => {
 
+
+
+
+class NewPokemon extends React.Component {
+
+    state= {
+        open: true
+    }
+
+    setInput = () => {
+       return PokemonNames.map(pokemon => <option value={pokemon.name}/> )
+     
+    }
+
+    attributes = [ 
+        "Nickname",
+        "Level",
+        "Nature",
+        "Ability",
+        "HP",
+        "Attack",
+        "Defence",
+        "Special Attack",
+        "Special Defence",
+        "Speed"
+    ]
+
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
+      }
+    
+    handleSubmit = (event) => {
+        
+        const pokemonData = {
+            name: this.state.name,
+            nickname: this.state.nickname,
+            level: this.state.level,
+            nature: this.state.nature,
+            ability: this.state.ability,
+            hp: this.state.hp,
+            attack: this.state.attack,
+            defence: this.state.defence,
+            special_attack: this.state.special_attack,
+            special_defence: this.state.special_defence,
+            speed: this.state.speed
+        }
+        API.addPokemon(pokemonData)
+    }  
+
+    closeForm = () => {
+        this.setState({open: true})
+    }
+
+    openForm =() => {
+        this.setState({open: false})
+    }
+
+    render() {
     return(
-        <form>
-            <div class="modal">
-                <div class="modal-background"></div>
-                    <div class="modal-content">
+        <div>
+        <button className="button" onClick={this.openForm}>Add New Pokemon</button>
+        <form onSubmit={this.handleSubmit}>
+            <div className= {
+                this.state.open ?
+                'modal'
+                :
+                'modal is-active'
+            }>
+                <div className="modal-background"></div>
+                    <div className="modal-content">
+                    
             <div className="field is-horizontal">
                 <div className="field-label is-normal">
                     <label className="label">Species: </label>
@@ -14,81 +81,46 @@ const NewPokemon = () => {
                 <div className="field-body">
                     <div className="field">
                             <div className="control">
-                                <input className="input">
-                                </input>
+                                <input list="pokemon-names" name="name" className="input" onChange={this.handleChange}/>
+                                    <datalist id="pokemon-names">
+                                        {this.setInput()}
+                                    </datalist>
+                                
                             </div>
                     </div>
                 </div>
             </div>
-                <div className="field is-horizontal">
-                    <label className="label">Nickname:  </label >
-                        <div className="control">
-                            <input className="input" type="text"/>
+            {
+                this.attributes.map(attributeName => {
+                    return (
+                        <div className="field is-horizontal">
+                            <div className="field-label is-normal">
+                                <label className="label">{attributeName}</label>
+                            </div>
+                            <div className="field-body">
+                                <div className="field">
+                                    <div className="control">
+                                        <input className="input" name={
+                                            attributeName.toLowerCase().replace(" ", '_')
+                                        } type="text" onChange={this.handleChange} />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    )
+                })
+            }
+            <button className="button">
+                Submit
+            </button>
                 </div>
-                <div className="field is-horizontal">
-                    <label className="label">Level: </label >
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                    
-                </div>
-                <div className="field is-horizontal">
-                    <label className="label">Nature: </label>
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                </div>
-                <div className="field is-horizontal">
-                    <label className="label">Ability: </label>
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                </div>
-                <div className="field is-horizontal">
-                    <label className="label">HP: </label> 
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                </div>
-                <div className="field is-horizontal">
-                    <label className="label">Attack: </label>
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                </div>
-                <div className="field is-horizontal">
-                    <label className="label">Defence: </label>
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                </div>
-                <div className="field is-horizontal">
-                    <label className="label">Special Attack: </label>
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                </div>
-                <div className="field is-horizontal">
-                    <label className="label">Special Defence: </label>
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                </div>
-                <div className="field is-horizontal">
-                    <label className="label">Speed: </label>
-                        <div className="control">
-                            <input className="input" type="text"/>
-                        </div>
-                </div>
-                <div class="control">
-                    <button class="button is-primary">Submit</button>
-                </div>
-        </div>
-                <button class="modal-close is-large" aria-label="close"></button>
-            </div>
+                    <button className="modal-close is-large" aria-label="close" onclick={this.closeForm}></button>
+                 </div>
+        
         </form>
+        </div>
     )
+}
 }
 
 export default NewPokemon
