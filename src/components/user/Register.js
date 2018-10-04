@@ -1,5 +1,5 @@
 import React from 'react'
-import API from '../adapters/API'
+import API from '../../adapters/API'
 
 class Register extends React.Component {
     state = {

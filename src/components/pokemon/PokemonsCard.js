@@ -1,5 +1,5 @@
 import React from 'react'
-import API from '../adapters/API'
+import API from '../../adapters/API'
 
 class PokemonsCard extends React.Component {
     state={
@@ -8,19 +8,18 @@ class PokemonsCard extends React.Component {
 
 test = (obj) => {
   for (var prop in obj) {
-    if(obj.hasOwnProperty(prop))
-      return false
+    if (obj.hasOwnProperty(prop)) { return false }
   }
   return true
 }
 
 averagePokemon = () => {
   const pokemonsprite = JSON.parse(this.props.pokemon.averagepokemonstats)
-  
+
   if (this.test(pokemonsprite)) {
-  return "https://www.lewesac.co.uk/wp-content/uploads/2017/12/default-avatar.jpg"
+    return 'https://www.lewesac.co.uk/wp-content/uploads/2017/12/default-avatar.jpg'
   } else {
-  return pokemonsprite.sprites.front_default
+    return pokemonsprite.sprites.front_default
   }
 }
 
@@ -52,7 +51,7 @@ titleCaseName = (name) => {
 
 render () {
   return (
-    <div className={this.state.active ? 'card-flip column is-4 flip' : 'card-flip column is-4'} onClick={this.toggleClass}>
+    <div className={this.state.active ? 'card-flip column is-4 flip' : 'card-flip column is-4'} onClick={this.toggleClass} key={this.props.pokemon.id}>
       <div className='flipper'>
         <div className='front'>
           <img className='card-sprite' src={this.averagePokemon()} alt='Pokemon-sprite' />
