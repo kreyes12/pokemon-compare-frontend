@@ -21,7 +21,7 @@ class PokemonsCollection extends React.Component {
       <div className='columns'>
         { this.state.selectedPokemon
           ? <PokemonCard pokemon={this.state.selectedPokemon} viewAllPokemon={this.viewAllPokemon} />
-          : this.props.pokemons.map(singlePokemon => <PokemonsCard showPokemon={this.showPokemon} pokemon={singlePokemon} deletePokemon={this.props.deletePokemon} />) }
+          : this.props.pokemons.map(singlePokemon => <PokemonsCard showPokemon={this.showPokemon} pokemon={singlePokemon} handleClick={this.props.handleClick} addPokemon={this.props.addPokemon} />) }
       </div>
 
     )

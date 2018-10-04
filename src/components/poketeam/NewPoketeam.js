@@ -1,5 +1,6 @@
 import React from 'react'
 import API from '../../adapters/API'
+import { Route, withRouter } from 'react-router-dom'
 
 class NewPoketeam extends React.Component {
     state= {
@@ -14,6 +15,8 @@ class NewPoketeam extends React.Component {
     handleSubmit = (event) => {
       event.preventDefault()
       API.addPoketeam(this.state.name)
+      this.toggleForm()
+      this.props.history.push('/poketeams')
     }
 
     handleChange = (event) => {
@@ -55,4 +58,4 @@ class NewPoketeam extends React.Component {
     }
 }
 
-export default NewPoketeam
+export default withRouter(NewPoketeam)

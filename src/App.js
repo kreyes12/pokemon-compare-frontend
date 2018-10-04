@@ -51,8 +51,9 @@ class App extends Component {
         <NavBar currentUser={currentUser} login={login} logout={logout} />
         { currentUser
           ? <Route exact path='/pokemon' component={() => <PokemonsPage />} />
-          : <Route exact path='/login' component={props => <Login login={login} {...props} />} />}
-        <Route exact path='/poketeams' component={() => <PoketeamsPage toggleUpdatePoketeam={this.toggleUpdatePoketeam} />} />
+          : <Route exact path='/login' component={props => <Login login={login} {...props} />} />
+        }
+        <Route exact path='/poketeams' component={() => <PoketeamsPage />} />
         <Route exact path='/register' component={props => <Register login={login} {...props} />} />
 
       </div>
