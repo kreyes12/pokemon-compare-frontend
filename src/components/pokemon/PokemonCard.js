@@ -74,7 +74,7 @@ class PokemonCard extends React.Component {
 
     return (
 
-      <div className='card column is-12'>
+      <div className='card column is-12' key={this.props.pokemon.id}>
         <div className='card-header'>
           <p className='card-header-title title is-centered'>
             {this.titleCaseName(this.props.pokemon.name)}

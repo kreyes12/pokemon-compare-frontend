@@ -1,6 +1,5 @@
 import React from 'react'
-import API from '../adapters/API'
-import NavBar from './NavBar'
+import API from '../../adapters/API'
 
 class Login extends React.Component {
   state = {

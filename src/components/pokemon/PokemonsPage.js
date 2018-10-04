@@ -1,9 +1,7 @@
 import React from 'react'
 import PokemonsCollection from './PokemonsCollection'
-import NavBar from './NavBar'
 import NewPokemon from './NewPokemon'
-import PokemonCard from './PokemonCard'
-import API from '../adapters/API'
+import API from '../../adapters/API'
 
 class PokemonsPage extends React.Component {
   state = {
@@ -35,9 +33,7 @@ class PokemonsPage extends React.Component {
           ? <p>You haven't added any pokemon yet</p>
           : <PokemonsCollection pokemons={this.state.pokemons} deletePokemon={this.deletePokemon} />
         }
-      
       </div>
-      
     )
   }
 }
