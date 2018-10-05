@@ -111,13 +111,25 @@ class API {
       .then(resp => resp.json())
   }
 
-  static updatePoketeam (id, name, pokemonIds) {
+  static updatePoketeam (pokeTeamId, name, pokemonIds) {
     const token = localStorage.getItem('token')
+    return fetch(API.poketeamsURL + `/${pokeTeamId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        name,
+        pokemonIds
+      })
+    })
+      .then(resp => resp.json())
   }
 
   static deletePoketeam (poketeamId) {
     const token = localStorage.getItem('token')
-    return fetch(API.poketeamsURL + `${poketeamId}`, {
+    return fetch(API.poketeamsURL + `/${poketeamId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

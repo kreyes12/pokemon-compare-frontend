@@ -30,16 +30,19 @@ class PoketeamCard extends React.Component {
 
   render () {
     const { titleCaseName, averagePokemon, pokemonTypes, toggleUpdateView } = this
-    const { poketeam, viewAllPoketeams } = this.props
+    const { poketeam, viewAllPoketeams, deletePoketeam } = this.props
 
     return (
       <div>
         { this.state.updateView
-          ? <UpdatePoketeam toggleUpdateView={toggleUpdateView} poketeam={poketeam} />
+          ? <UpdatePoketeam toggleUpdateView={toggleUpdateView}
+            poketeam={poketeam}
+            updateStatePoketeam={this.props.updateStatePoketeam} />
           : <div>
             <h1 className=''><strong>{poketeam.name}</strong></h1> <br />
             <button className='button' onClick={viewAllPoketeams}>Back to All Poketeams</button>
-            <button className='button' onClick={toggleUpdateView}>Edit</button> <br />
+            <button className='button' onClick={toggleUpdateView}>Edit Team</button>
+            <button className='button' onClick={() => deletePoketeam(poketeam.id)}>Delete Team</button> <br />
             <div className='tile is-ancestor' key={poketeam.id}>
               <div className='tile is-parent'>
                 {
