@@ -41,7 +41,6 @@ class UpdatePoketeam extends React.Component {
   }
 
   addPokemonToTeam = (id) => {
-    console.log(this.state.poketeamPokemonIds.length)
     if (this.state.poketeamPokemonIds.length > 5) {
       return alert("You can't add more than 6 Pokemon to your Team")
     } else {
@@ -80,7 +79,6 @@ class UpdatePoketeam extends React.Component {
         if (data.errors) {
           console.log(data)
         } else {
-          console.log(data)
           this.props.updateStatePoketeam(this.state.poketeam)
           this.props.toggleUpdateView()
         }

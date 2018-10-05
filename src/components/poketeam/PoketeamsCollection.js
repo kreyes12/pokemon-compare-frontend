@@ -16,7 +16,8 @@ class PoketeamsCollection extends React.Component {
               ? <PoketeamCard poketeam={this.props.selectedPoketeam}
                 viewAllPoketeams={this.props.viewAllPoketeams}
                 handleClick={this.props.handClick}
-                updateStatePoketeam={this.props.updateStatePoketeam} />
+                updateStatePoketeam={this.props.updateStatePoketeam} 
+                deletePoketeam={this.props.deletePoketeam} />
               : this.props.poketeams.map(singlePoketeam =>
                 <div className='tile is-vertical box'>
                   <h1 className='tile is-12 is-child'><strong>{singlePoketeam.name}</strong></h1>

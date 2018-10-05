@@ -15,8 +15,14 @@ class NewPoketeam extends React.Component {
     handleSubmit = (event) => {
       event.preventDefault()
       API.addPoketeam(this.state.name)
-      this.toggleForm()
-      this.props.history.push('/poketeams')
+        .then(data => {
+          if (data.error) {
+            console.log(data)
+          } else {
+            this.toggleForm()
+            this.props.history.push('/poketeams')
+          }
+        })
     }
 
     handleChange = (event) => {
