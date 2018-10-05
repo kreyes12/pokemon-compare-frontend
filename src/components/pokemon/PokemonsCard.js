@@ -6,21 +6,10 @@ class PokemonsCard extends React.Component {
       active: false
     }
 
-test = (obj) => {
-  for (var prop in obj) {
-    if (obj.hasOwnProperty(prop)) { return false }
-  }
-  return true
-}
 
 averagePokemon = () => {
   const pokemonsprite = JSON.parse(this.props.pokemon.averagepokemonstats)
-
-  if (this.test(pokemonsprite)) {
-    return 'https://www.lewesac.co.uk/wp-content/uploads/2017/12/default-avatar.jpg'
-  } else {
-    return pokemonsprite.sprites.front_default
-  }
+  return pokemonsprite.sprites.front_default
 }
 
 getAveragePokemon = () => {
@@ -51,7 +40,7 @@ titleCaseName = (name) => {
 
 render () {
   return (
-    <div className={this.state.active ? 'card-flip column is-4 flip' : 'card-flip column is-4'} onClick={this.toggleClass} key={this.props.pokemon.id}>
+    <div className={this.state.active ? 'card-flip flip' : 'card-flip'} onClick={this.toggleClass} key={this.props.pokemon.id}>
       <div className='flipper'>
         <div className='front'>
           <img className='card-sprite' src={this.averagePokemon()} alt='Pokemon-sprite' />
