@@ -115,7 +115,6 @@ class NewPokemon extends React.Component {
               </div>
               <button className='modal-close is-large' aria-label='close' onClick={this.closeForm} />
             </div>
-
           </form>
         </div>
       )

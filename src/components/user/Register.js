@@ -38,14 +38,39 @@ class Register extends React.Component {
       const { handleChange, handleSubmit } = this
 
       return (
-        <div>
+        <div className="login container">
           <form>
-            <label>Username: </label> <br />
-            <input type='text' name='username' onChange={handleChange} value={username} /> <br />
-            <label>Password: </label> <br />
-            <input type='password' name='password' onChange={handleChange} value={password} /> <br />
+          <div className='field is-horizontal'>
+            <div className='field-label is-normal'>
+              <label className='label'>Username: </label> 
+            </div>
+            <div className='field-body'>
+              <div className='field'>
+                <div className='control'>
+                  <input className="input" type='text' name='username' onChange={handleChange} value={username} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='field is-horizontal'>
+          <div className='field-label is-normal'>
+            <label className='label'>Password: </label>
+          </div>
+          <div className='field-body'>
+            <div className='field'>
+              <div className='control'>
+                <input className="input" type='password' name='password' onChange={handleChange} value={password} />
+              </div>
+            </div>
+          </div>
+        
+          </div>
+          <div className='field is-horizontal'>
+            <div className='field-label is-normal'>
+              <button className="button label is-primary" onClick={handleSubmit}>Register</button>
+            </div>
+          </div>
           </form>
-          <button onClick={handleSubmit}>Register</button>
         </div>
       )
     }
