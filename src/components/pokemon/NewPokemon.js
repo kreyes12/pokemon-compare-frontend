@@ -64,7 +64,7 @@ class NewPokemon extends React.Component {
     render () {
       return (
         <div>
-          <button className='button' onClick={this.openForm}>Add New Pokemon</button>
+          <button className='button is-primary' onClick={this.openForm}>Add New Pokemon</button>
           <form >
             <div className={
               this.state.open

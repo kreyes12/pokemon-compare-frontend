@@ -6,22 +6,25 @@
 
 // Set your brand colors
 $purple: #8A4D76;
-$pink: #FA7C91;
 $brown: #492861;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
+$green: #00D194;
+$pink: #FF0058;
+$blue: #00B0BC;
+$yellow: #F9D600;
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
-$primary: $brown;
-$link: $pink;
+$primary: $pink;
+$link: $green;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
 // Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
+$body-background-color: $blue;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
@@ -85,18 +88,31 @@ $input-shadow: none;
 	z-index: 2;
 	/* for firefox 31 */
     transform: rotateY(0deg);
-    background-color: $white;
+    background-color: #00d1b2;
+    border-radius: 4px;
+    
+}
+
+.front .title,
+.front .subtitle {
+    color: white
+}
+
+.front .title {
+    margin-top: 7px;
 }
 
 .back {
       transform: rotateY(180deg);
-      background-color: $white;
+    background-color: #F8FFFF;
+   
   }
 
 .card-sprite{
     width: 100%;
     display: block;
-    background-color: $beige-light
+    background-color: #F8FFFF;
+    border-radius: 4px 4px 0px 0px;
 }
 
 .button {

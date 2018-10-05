@@ -6659,7 +6659,7 @@ th {
   text-align: left; }
 
 html {
-  background-color: #EFF0EB;
+  background-color: #00B0BC;
   font-size: 16px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -6698,7 +6698,7 @@ body {
   line-height: 1.5; }
 
 a {
-  color: #FA7C91;
+  color: #00D194;
   cursor: pointer;
   text-decoration: none; }
   a strong {
@@ -9530,7 +9530,7 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 
 .card-flip {
   perspective: 1000px;
-  background-color: #EFF0EB;
+  background-color: #00B0BC;
   margin: 1rem;
   padding: 1rem; }
 
@@ -9556,16 +9556,25 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   z-index: 2;
   /* for firefox 31 */
   transform: rotateY(0deg);
-  background-color: white; }
+  background-color: #00d1b2;
+  border-radius: 4px; }
+
+.front .title,
+.front .subtitle {
+  color: white; }
+
+.front .title {
+  margin-top: 7px; }
 
 .back {
   transform: rotateY(180deg);
-  background-color: white; }
+  background-color: #F8FFFF; }
 
 .card-sprite {
   width: 100%;
   display: block;
-  background-color: #D0D1CD; }
+  background-color: #F8FFFF;
+  border-radius: 4px 4px 0px 0px; }
 
 .button {
   margin-left: 1rem;
