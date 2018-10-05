@@ -113,7 +113,10 @@ class UpdatePoketeam extends React.Component {
           </div>
         </div>
         <div className=''>
-          <PokemonsCollection pokemons={this.state.pokemons} handleClick={addPokemonToTeam} addPokemon={this.state.addPokemon} />
+          <PokemonsCollection
+            pokemons={this.state.pokemons}
+            handleClick={addPokemonToTeam}
+            addPokemon={this.state.addPokemon} />
         </div>
       </div>
 
