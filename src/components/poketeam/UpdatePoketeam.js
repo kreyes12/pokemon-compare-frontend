@@ -41,18 +41,23 @@ class UpdatePoketeam extends React.Component {
   }
 
   addPokemonToTeam = (id) => {
-    if (this.state.poketeamPokemonIds.includes(id)) {
-      alert('This Pokemon is already on your team, please add another.')
+    console.log(this.state.poketeamPokemonIds.length)
+    if (this.state.poketeamPokemonIds.length > 5) {
+      return alert("You can't add more than 6 Pokemon to your Team")
     } else {
-    // Setup IDs to send through API on submit
-      this.state.poketeamPokemonIds.push(id)
+      if (this.state.poketeamPokemonIds.includes(id)) {
+        return alert('Either this Pokemon is already on your team, or you are trying to add more than 6 Pokemon to your team')
+      } else {
+      // Setup IDs to send through API on submit
+        this.state.poketeamPokemonIds.push(id)
 
-      // Add Pokemon visually to page
-      let newArray = [...this.state.poketeam.pokemons]
-      let newPokemon = this.state.pokemons.find(pokemon => pokemon.id === id)
-      newArray.push(newPokemon)
-      this.setState(prevState => ({ ...prevState, poketeam: { ...prevState.poketeam, pokemons: newArray }
-      }))
+        // Add Pokemon visually to page
+        let newArray = [...this.state.poketeam.pokemons]
+        let newPokemon = this.state.pokemons.find(pokemon => pokemon.id === id)
+        newArray.push(newPokemon)
+        this.setState(prevState => ({ ...prevState, poketeam: { ...prevState.poketeam, pokemons: newArray }
+        }))
+      }
     }
   }
 
