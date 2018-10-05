@@ -61,8 +61,8 @@ render () {
             <p><strong>Speed: </strong>{this.props.pokemon.speed}</p>
             <p><strong>Nature: </strong>{this.props.pokemon.nature}</p>
           </div>
-          <button className='button' onClick={this.handleClick}>View Species Stats</button>
-          <button className='button' onClick={() => this.props.handleClick(this.props.pokemon.id)}>{this.props.addPokemon ? 'Add Pokemon' : 'Delete Pokemon' }</button>
+          <button className='button is-primary' onClick={this.handleClick}>View Species Stats</button>
+          <button className='button ' onClick={() => this.props.deletePokemon(this.props.pokemon.id)}>Delete Pokemon</button>
         </div>
       </div>
     </div>
