@@ -9585,3 +9585,6 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 
 .label {
   color: white; }
+
+.poke-content {
+  margin-bottom: 1rem; }
