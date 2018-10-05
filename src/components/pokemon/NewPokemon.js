@@ -29,6 +29,7 @@ class NewPokemon extends React.Component {
     }
 
     handleSubmit = (event) => {
+      console.log("SUBMITTED")
       const pokemonData = {
         name: this.state.name,
         nickname: this.state.nickname,
@@ -43,13 +44,13 @@ class NewPokemon extends React.Component {
         speed: this.state.speed
       }
       API.addPokemon(pokemonData)
-      .then(data => {
-        if (data.error) {
-          console.log(data)
-        } else {
-          this.closeForm(event)
-        }
-      })
+        .then(data => {
+          if (data.errors) {
+            console.log(data)
+          } else {
+            this.closeForm(event)
+          }
+        })
     }
 
     closeForm = (event) => {
@@ -110,7 +111,7 @@ class NewPokemon extends React.Component {
                     )
                   })
                 }
-                <button onSubmit={this.handleSubmit} className='button'>Submit</button>
+                <button onClick={this.handleSubmit} className='button'>Submit</button>
               </div>
               <button className='modal-close is-large' aria-label='close' onClick={this.closeForm} />
             </div>

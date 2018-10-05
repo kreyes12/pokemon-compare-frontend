@@ -62,7 +62,7 @@ class API {
   }
 
   static addPokemon (obj) {
-    return fetch(API.baseURL + `/pokemons/new`, {
+    return fetch(API.pokemonsURL + `/new`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -72,7 +72,6 @@ class API {
       body: JSON.stringify(obj)
     })
       .then(response => response.json())
-      .then(json => console.log(json))
   }
 
   // POKETEAM API CALLS

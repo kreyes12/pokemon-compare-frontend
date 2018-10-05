@@ -16,7 +16,7 @@ class NewPoketeam extends React.Component {
       event.preventDefault()
       API.addPoketeam(this.state.name)
         .then(data => {
-          if (data.error) {
+          if (data.errors) {
             console.log(data)
           } else {
             this.toggleForm()
