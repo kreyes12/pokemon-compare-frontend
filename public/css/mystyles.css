@@ -9588,3 +9588,9 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 
 .poke-content {
   margin-bottom: 1rem; }
+
+.login {
+  margin-top: 20%; }
+
+.login .button {
+  margin-left: 4rem; }

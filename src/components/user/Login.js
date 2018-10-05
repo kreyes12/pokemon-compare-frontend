@@ -32,13 +32,37 @@ render () {
   const { handleChange, handleSubmit } = this
 
   return (
-    <div>
+    <div className="login container">
       <form onSubmit={handleSubmit}>
-        <label>Username: </label> <br />
-        <input type='text' name='username' onChange={handleChange} value={username} /> <br />
-        <label>Password: </label> <br />
-        <input type='password' name='password' onChange={handleChange} value={password} /> <br />
-        <button>Login</button>
+        <div className='field is-horizontal'>
+          <div className='field-label is-normal'>
+            <label className='label'>Username: </label> 
+          </div>
+          <div className='field-body'>
+            <div className='field'>
+              <div className='control'>
+                <input className="input"  type='text' name='username' onChange={handleChange} value={username} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='field is-horizontal'>
+          <div className='field-label is-normal'>
+            <label className='label'>Password: </label>
+          </div>
+          <div className='field-body'>
+            <div className='field'>
+              <div className='control'>
+                <input className="input" type='password' name='password' onChange={handleChange} value={password} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='field is-horizontal'>
+          <div className='field-label is-normal'>
+            <button className="button label is-primary">Login</button>
+          </div>
+        </div>
       </form>
     </div>
   )

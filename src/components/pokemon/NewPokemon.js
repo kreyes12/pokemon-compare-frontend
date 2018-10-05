@@ -110,11 +110,10 @@ class NewPokemon extends React.Component {
                     )
                   })
                 }
-                <button onSubmit={this.handleSubmit} className='button'>Submit</button>
+                <button onClick={this.handleSubmit} className='button'>Submit</button>
               </div>
               <button className='modal-close is-large' aria-label='close' onClick={this.closeForm} />
             </div>
-
           </form>
         </div>
       )
