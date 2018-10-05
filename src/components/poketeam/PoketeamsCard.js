@@ -8,10 +8,6 @@ class PoketeamsCard extends React.Component {
       return pokemonsprite.sprites.front_default
     }
 
-    makePoketeamObj = () => {
-
-    }
-
     render () {
       const { poketeam, showPoketeam } = this.props
       return (
