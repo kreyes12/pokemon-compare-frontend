@@ -8,7 +8,7 @@ class NewPokemon extends React.Component {
     }
 
     setInput = () => {
-      return PokemonNames.map(pokemon => <option value={pokemon.name} />)
+      return PokemonNames.map(pokemon => <option key={pokemon.name} value={pokemon.name} />)
     }
 
     attributes = [
@@ -43,9 +43,17 @@ class NewPokemon extends React.Component {
         speed: this.state.speed
       }
       API.addPokemon(pokemonData)
+      .then(data => {
+        if (data.error) {
+          console.log(data)
+        } else {
+          this.closeForm(event)
+        }
+      })
     }
 
-    closeForm = () => {
+    closeForm = (event) => {
+      event.preventDefault()
       this.setState({ open: true })
     }
 
@@ -57,7 +65,7 @@ class NewPokemon extends React.Component {
       return (
         <div>
           <button className='button' onClick={this.openForm}>Add New Pokemon</button>
-          <form onSubmit={this.handleSubmit}>
+          <form >
             <div className={
               this.state.open
                 ? 'modal'
@@ -102,9 +110,7 @@ class NewPokemon extends React.Component {
                     )
                   })
                 }
-                <button className='button'>
-                Submit
-                </button>
+                <button onSubmit={this.handleSubmit} className='button'>Submit</button>
               </div>
               <button className='modal-close is-large' aria-label='close' onClick={this.closeForm} />
             </div>

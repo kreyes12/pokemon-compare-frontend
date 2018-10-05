@@ -9573,3 +9573,6 @@ a.has-text-danger:hover, a.has-text-danger:focus {
 
 .wrap {
   flex-wrap: wrap; }
+
+.label {
+  color: white; }
