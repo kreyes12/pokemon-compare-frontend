@@ -14,8 +14,8 @@ handleSubmit = (event) => {
 
   API.login(username, password)
     .then(data => {
-      if (data.error) {
-        console.log(data)
+      if (data.message) {
+        return console.log(data)
       } else {
         localStorage.setItem('token', data.token)
         login(data.user.username)
