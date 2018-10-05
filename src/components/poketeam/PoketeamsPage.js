@@ -10,6 +10,13 @@ class PoketeamsPage extends React.Component {
     selectedPoketeam: false
   }
 
+  updateStatePoketeam = (poketeam) => {
+    let newPoketeams = [...this.state.poketeams]
+    let index = newPoketeams.findIndex(currPoketeam => currPoketeam.id === poketeam.id)
+    newPoketeams[index] = poketeam
+    this.setState({ poketeams: newPoketeams })
+  }
+
   deletePoketeam = (id) => {
     API.deletePoketeam(id)
       .then(data => {
@@ -45,7 +52,12 @@ class PoketeamsPage extends React.Component {
         }
         { this.state.poketeams.length === 0
           ? <p>You haven't added any Poketeams yet</p>
-          : <PoketeamsCollection poketeams={this.state.poketeams} deletePoketeam={this.deletePoketeam} viewAllPoketeams={this.viewAllPoketeams} showPoketeam={this.showPoketeam} selectedPoketeam={this.state.selectedPoketeam} />
+          : <PoketeamsCollection poketeams={this.state.poketeams}
+            deletePoketeam={this.deletePoketeam}
+            viewAllPoketeams={this.viewAllPoketeams}
+            showPoketeam={this.showPoketeam}
+            selectedPoketeam={this.state.selectedPoketeam}
+            updateStatePoketeam={this.updateStatePoketeam} />
         }
       </div>
 

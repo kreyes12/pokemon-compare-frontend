@@ -41,15 +41,19 @@ class UpdatePoketeam extends React.Component {
   }
 
   addPokemonToTeam = (id) => {
+    if (this.state.poketeamPokemonIds.includes(id)) {
+      alert('This Pokemon is already on your team, please add another.')
+    } else {
     // Setup IDs to send through API on submit
-    this.state.poketeamPokemonIds.push(id)
+      this.state.poketeamPokemonIds.push(id)
 
-    // Add Pokemon visually to page
-    let newArray = [...this.state.poketeam.pokemons]
-    let newPokemon = this.state.pokemons.find(pokemon => pokemon.id === id)
-    newArray.push(newPokemon)
-    this.setState(prevState => ({ ...prevState, poketeam: { ...prevState.poketeam, pokemons: newArray }
-    }))
+      // Add Pokemon visually to page
+      let newArray = [...this.state.poketeam.pokemons]
+      let newPokemon = this.state.pokemons.find(pokemon => pokemon.id === id)
+      newArray.push(newPokemon)
+      this.setState(prevState => ({ ...prevState, poketeam: { ...prevState.poketeam, pokemons: newArray }
+      }))
+    }
   }
 
   removeFromPoketeam = (id) => {
@@ -60,9 +64,7 @@ class UpdatePoketeam extends React.Component {
 
     // Remove Pokemon visually from page
     let newArray = [...this.state.poketeam.pokemons]
-    console.log(newArray)
     let newIdArr = newArray.filter(pokemon => pokemon.id !== id)
-    console.log(newArray)
     this.setState(prevState => ({ ...prevState, poketeam: { ...prevState.poketeam, pokemons: newIdArr }
     }))
   }
@@ -74,6 +76,7 @@ class UpdatePoketeam extends React.Component {
           console.log(data)
         } else {
           console.log(data)
+          this.props.updateStatePoketeam(this.state.poketeam)
           this.props.toggleUpdateView()
         }
       })
